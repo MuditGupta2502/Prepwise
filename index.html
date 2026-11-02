@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <title>Prepwise — Make every session count</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/vendor/katex/katex.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#home" aria-label="Prepwise home">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 7.5h9.2a7.3 7.3 0 0 1 0 14.6H13v4.4H8V7.5Zm5 4.7v5.2h4a2.6 2.6 0 1 0 0-5.2h-4Z" fill="currentColor"/><path d="M22.7 8.4h2.1v2.1h-2.1z" fill="#c5f36a"/></svg></span>
+        <span>prepwise<span class="brand-period">.</span></span>
+      </a>
+
+      <div class="workspace-label">YOUR WORKSPACE</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link active" href="#home" data-view="home"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="m3.5 10 8.5-7 8.5 7v10a1 1 0 0 1-1 1h-5v-7h-5v7h-5a1 1 0 0 1-1-1V10Z"/></svg></span>Overview</a>
+        <a class="nav-link" href="#learn" data-view="learn"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15Z"/><path d="M4 19a2.5 2.5 0 0 1 2.5-2.5H20M8 7h8M8 10h6"/></svg></span>Learning paths</a>
+        <a class="nav-link" href="#practice" data-view="practice"><span class="nav-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m8 10 2 2-2 2m5 0h3"/></svg></span>Practice</a>
+        <a class="nav-link" href="#library" data-view="library"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M5 3.5h10l4 4V21H5z"/><path d="M14 3.5v5h5M8 13h8M8 16.5h8"/></svg></span>Study library</a>
+        <a class="nav-link" href="#tutor" data-view="tutor"><span class="nav-icon"><svg viewBox="0 0 24 24"><path d="M12 3v2m0 14v2M3 12h2m14 0h2M5.6 5.6 7 7m10 10 1.4 1.4m0-12.8L17 7M7 17l-1.4 1.4"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>AI tutor <span class="nav-new">NEW</span></a>
+      </nav>
+
+      <div class="sidebar-section-heading"><span>YOUR FOCUS</span><button class="icon-button tiny" title="Add a focus area" aria-label="Add focus area" id="addFocus">+</button></div>
+      <div class="focus-list">
+        <a href="#leetcode" class="focus-item"><i class="focus-dot lime"></i>Data structures <span>8</span></a>
+        <a href="#hld" class="focus-item"><i class="focus-dot purple"></i>System design <span>4</span></a>
+        <a href="#ai" class="focus-item"><i class="focus-dot orange"></i>AI engineering <span>6</span></a>
+      </div>
+
+      <div class="sidebar-spacer"></div>
+      <div class="streak-card">
+        <div class="streak-top"><span class="streak-flame">✳</span><span class="streak-count">5 day streak</span><span class="streak-spark">↗</span></div>
+        <div class="streak-caption">You’re building a great habit.<br/>Keep the momentum going.</div>
+        <div class="streak-days"><span class="done">M</span><span class="done">T</span><span class="done">W</span><span class="done">T</span><span class="done">F</span><span>S</span><span>S</span></div>
+      </div>
+      <button class="profile-button"><span class="avatar">A</span><span class="profile-copy"><b>Alex Morgan</b><small>Free plan</small></span><span class="profile-more">···</span></button>
+    </aside>
+
+    <main class="main-content" id="mainContent">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Toggle navigation"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><b id="crumbCurrent">Overview</b></div>
+        <div class="topbar-actions">
+          <label class="search-box"><svg viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4 4"/></svg><input type="search" id="globalSearch" placeholder="Search anything..." /><kbd>⌘ K</kbd></label>
+          <button class="icon-button notification-button" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9ZM10 21h4"/></svg><i></i></button>
+        </div>
+      </header>
+
+      <div class="page-wrap" id="pageWrap">
+        <section class="welcome-row">
+          <div><div class="eyebrow"><span class="eyebrow-dot"></span> MONDAY, NOVEMBER 2, 2026</div><h1>Hi there, buddy.</h1><p class="welcome-subtitle">A little progress each day adds up. Let’s make today count.</p></div>
+          <button class="button button-dark" id="planButton"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Build my study plan</button>
+        </section>
+
+        <section class="hero-grid">
+          <article class="continue-card">
+            <div class="continue-info">
+              <div class="card-kicker"><span class="live-dot"></span> PICK UP WHERE YOU LEFT OFF</div>
+              <div class="continue-title-row"><span class="course-icon icon-lime"><svg viewBox="0 0 24 24"><path d="M8 5 3 12l5 7M16 5l5 7-5 7M14 3l-4 18"/></svg></span><span class="course-tag">DATA STRUCTURES &amp; ALGORITHMS</span></div>
+              <h2>Sliding window<br/>patterns</h2>
+              <p class="continue-desc">Master the technique behind a whole class of array problems.</p>
+              <div class="lesson-meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>12 min left</span><span class="meta-sep">·</span><span>Lesson 4 of 8</span></div>
+              <button class="button button-lime" id="resumeButton">Continue learning <span>→</span></button>
+            </div>
+            <div class="continue-art" aria-hidden="true">
+              <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+              <div class="art-window"><div class="window-top"><i></i><i></i><i></i><span>window.py</span></div><div class="code-lines"><div><b>1</b><span><em>left</em> = <strong>0</strong></span></div><div><b>2</b><span><em>for</em> right <em>in</em> range(n):</span></div><div><b>3</b><span class="indent">window.add(nums[right])</span></div><div><b>4</b><span class="indent"><em>while</em> is_invalid():</span></div><div class="highlight-line"><b>5</b><span class="indent-more">window.remove(nums[left])</span></div><div><b>6</b><span class="indent-more">left += <strong>1</strong></span></div><div><b>7</b><span><em>return</em> best</span></div></div><div class="code-cursor"></div></div>
+              <div class="floating-pill pill-top"><span>↗</span> One pattern, many problems</div><div class="floating-pill pill-bottom"><span class="pill-check">✓</span> Pattern unlocked</div>
+              <div class="art-spark spark-a">✳</div><div class="art-spark spark-b">✳</div>
+            </div>
+          </article>
+
+          <article class="progress-card">
+            <div class="progress-heading"><div><div class="card-kicker">YOUR PROGRESS</div><h3>On your way</h3></div><button class="icon-button" aria-label="More progress options">···</button></div>
+            <div class="progress-ring-wrap"><div class="progress-ring"><div class="ring-center"><strong>68<span>%</span></strong><small>overall</small></div></div><div class="ring-note"><span class="note-line"></span><b>Looking good!</b><small>You’re ahead of<br/>your weekly goal.</small></div></div>
+            <div class="progress-divider"></div>
+            <div class="weekly-head"><span>This week</span><span><b>4.5</b> / 6 hrs</span></div>
+            <div class="weekly-bar"><i></i></div>
+            <div class="weekly-foot"><span>1.5 hrs to your goal</span><span class="week-arrow">↗</span></div>
+          </article>
+        </section>
+
+        <section class="section-block paths-section" id="pathsSection">
+          <div class="section-header"><div><div class="section-eyebrow">YOUR JOURNEY</div><h2>Choose your next move</h2></div><a href="#learn" class="text-link" data-view="learn">View all paths <span>→</span></a></div>
+          <div class="path-grid">
+            <article class="path-card path-dsa" data-search="leetcode data structures algorithms coding"><div class="path-card-top"><div class="path-symbol symbol-lime"><svg viewBox="0 0 24 24"><path d="M8 5 3 12l5 7M16 5l5 7-5 7M14 3l-4 18"/></svg></div><span class="path-menu">···</span></div><div class="path-label">CODING INTERVIEWS</div><h3>LeetCode &amp; DSA</h3><p>Patterns that make tricky problems feel familiar.</p><div class="path-card-bottom"><div class="mini-progress"><i style="width:62%"></i></div><span>12 <small>/ 20 lessons</small></span></div></article>
+            <article class="path-card path-cp" data-search="competitive programming contests algorithms"><div class="path-card-top"><div class="path-symbol symbol-purple"><svg viewBox="0 0 24 24"><path d="M5 19V5m0 14h14M8 15l3-4 3 2 5-7"/><circle cx="19" cy="6" r="1.5"/></svg></div><span class="path-menu">···</span></div><div class="path-label">THINK FASTER</div><h3>Competitive programming</h3><p>Build speed, intuition, and contest confidence.</p><div class="path-card-bottom"><div class="mini-progress purple-progress"><i style="width:28%"></i></div><span>5 <small>/ 18 lessons</small></span></div></article>
+            <article class="path-card path-lld" data-search="low level design object oriented patterns"><div class="path-card-top"><div class="path-symbol symbol-orange"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="6" rx="1.5"/><rect x="14" y="14" width="7" height="6" rx="1.5"/><path d="M10 7h4a2 2 0 0 1 2 2v5M7 10v5h7"/></svg></div><span class="path-menu">···</span></div><div class="path-label">DESIGN THE DETAILS</div><h3>Low-level design</h3><p>Turn requirements into clean, extensible code.</p><div class="path-card-bottom"><div class="mini-progress orange-progress"><i style="width:45%"></i></div><span>7 <small>/ 16 lessons</small></span></div></article>
+            <article class="path-card path-hld" data-search="high level design system architecture scalability"><div class="path-card-top"><div class="path-symbol symbol-blue"><svg viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="5" rx="1.5"/><rect x="2" y="16" width="8" height="5" rx="1.5"/><rect x="14" y="16" width="8" height="5" rx="1.5"/><path d="M12 8v4m-6 4v-2h12v2"/></svg></div><span class="path-menu">···</span></div><div class="path-label">THINK IN SYSTEMS</div><h3>High-level design</h3><p>Design systems built for real-world scale.</p><div class="path-card-bottom"><div class="mini-progress blue-progress"><i style="width:19%"></i></div><span>3 <small>/ 15 lessons</small></span></div></article>
+            <article class="path-card path-ai" data-search="ai engineer machine learning llm rag"><div class="path-card-top"><div class="path-symbol symbol-pink"><svg viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div><span class="path-menu">···</span></div><div class="path-label">BUILD WITH INTELLIGENCE</div><h3>AI engineering</h3><p>From ML foundations to production-ready AI.</p><div class="path-card-bottom"><div class="mini-progress pink-progress"><i style="width:10%"></i></div><span>2 <small>/ 22 lessons</small></span></div></article>
+            <button class="add-path-card" id="explorePaths"><span class="add-path-icon">+</span><b>Explore all learning paths</b><small>Find the right path for your next role</small><span class="add-path-arrow">↗</span></button>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <article class="today-card">
+            <div class="section-header compact"><div><div class="section-eyebrow">A PLAN THAT FITS YOUR DAY</div><h2>Today’s focus</h2></div><button class="icon-button" aria-label="More options">···</button></div>
+            <div class="today-list">
+              <div class="today-item"><div class="task-check checked">✓</div><div class="task-copy"><b>Review: Two pointers</b><small>LeetCode &amp; DSA <span>·</span> 15 min</small></div><span class="task-status status-done">DONE</span></div>
+              <div class="today-item"><div class="task-check"></div><div class="task-copy"><b>Learn: Sliding window</b><small>LeetCode &amp; DSA <span>·</span> 20 min</small></div><span class="task-status status-next">NEXT UP</span></div>
+              <div class="today-item"><div class="task-check"></div><div class="task-copy"><b>Quick quiz: Arrays</b><small>5 questions <span>·</span> 8 min</small></div><span class="task-status">8 MIN</span></div>
+            </div>
+            <button class="today-footer" id="todayButton">See your full study plan <span>→</span></button>
+          </article>
+          <article class="quick-card">
+            <div class="section-eyebrow">A QUICK WIN</div><div class="quick-card-head"><h2>Warm up your<br/>problem-solving</h2><div class="quick-decoration"><span>✳</span></div></div><p>Take a 5-question quiz on topics you’ve already covered.</p><div class="quick-meta"><span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>~5 minutes</span><span class="difficulty"><i></i> Just right</span></div><button class="button button-dark quick-start" id="quizButton">Start a quick quiz <span>→</span></button>
+          </article>
+        </section>
+        <footer class="footer"><span>Made for the curious.</span><span>Keep learning, keep building <b>✳</b></span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="/vendor/marked/marked.umd.js"></script>
+  <script src="/vendor/dompurify/purify.min.js"></script>
+  <script src="/vendor/katex/katex.min.js"></script>
+  <script src="tracks.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
