@@ -8,12 +8,19 @@ from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
 
 ROOT = Path(__file__).resolve().parent
 load_dotenv(ROOT / ".env")
 
 app = FastAPI(title="Prepwise API", version="1.0.0")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"],
+)
 app.mount("/vendor", StaticFiles(directory=ROOT / "vendor"), name="vendor")
 
 

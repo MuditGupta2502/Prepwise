@@ -141,7 +141,7 @@ function openTutor() {
     input.value='';overlay.querySelector('.tutor-welcome').hidden=true;addMessage('user',question);
     const pending=addMessage('assistant','Searching your study library and preparing an explanation…');
     const submit=overlay.querySelector('.tutor-input-wrap button');submit.disabled=true;
-    try{const response=await fetch('/api/tutor',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,track:overlay.querySelector('select').value,history})});const result=await response.json();if(!response.ok)throw new Error(result.error||result.detail||'Tutor request failed.');pending.remove();addMessage('assistant',result.answer,result.sources||[]);if(result.mode==='demo')showToast('Demo tutor · add an API key to enable generated answers.');}
+    try{const apiBase=String(window.PREPWISE_API_BASE||'').replace(/\/$/,'');const response=await fetch(`${apiBase}/api/tutor`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,track:overlay.querySelector('select').value,history})});const result=await response.json();if(!response.ok)throw new Error(result.error||result.detail||'Tutor request failed.');pending.remove();addMessage('assistant',result.answer,result.sources||[]);if(result.mode==='demo')showToast('Demo tutor · add an API key to enable generated answers.');}
     catch(error){pending.remove();addMessage('assistant',`${error.message} Make sure the FastAPI server is running with python -m uvicorn server:app --reload --port 8001.`);}
     finally{submit.disabled=false;input.focus();}
   });

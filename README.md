@@ -38,9 +38,15 @@ python scripts/ingest.py
 
 The tutor combines keyword and vector retrieval. If PostgreSQL is unavailable, it continues using keyword retrieval over the curriculum. Re-run `python scripts/ingest.py` after changing course content. Re-embed the complete corpus when changing embedding providers because vector spaces are not interchangeable.
 
-## Free hosting on Render
+## Free hosting: Netlify UI + Koyeb FastAPI
 
-The root `render.yaml` defines a free Python web service that serves both the UI and API. Connect the GitHub repository in Render, create a Blueprint from `render.yaml`, and enter your Gemini API key when prompted. No database is required for the app to run; keyword retrieval is the fallback. Render's free web service sleeps after 15 minutes without traffic and can take about a minute to wake. Keep the service plan set to `free` and do not add paid databases or disks.
+Netlify deploys the static UI from `netlify.toml`; Koyeb runs the Python FastAPI/LangGraph backend from the root `Dockerfile`. Netlify Functions do not provide a Python FastAPI runtime, so the API runs as a separate service. Koyeb documents one free web service per organization (512 MB RAM, 0.1 vCPU, 2 GB SSD); it says the free service will not incur charges. Netlify Free currently includes 300 monthly credits and automatically pauses sites at the hard limit instead of charging overages. Keep both services on their free plans.
+
+1. In Koyeb, create a service from this public GitHub repository using the Dockerfile. Choose the **Free** instance, set `GEMINI_API_KEY` as a secret, and set `AI_PROVIDER=gemini`. Do not add a database; keyword retrieval is the fallback. Copy the resulting public service URL.
+2. In Netlify, import the same GitHub repository. It reads `netlify.toml` for the build and publish settings. Set the environment variable `PREPWISE_API_BASE` to the Koyeb URL (for example, `https://your-api.koyeb.app`) and deploy.
+3. After setting or changing `PREPWISE_API_BASE`, trigger a new Netlify deploy so `api-config.js` is generated with the API URL.
+
+The Koyeb free instance is small and intended for hobby/testing workloads; performance can be limited. Netlify's free plan pauses projects after its monthly credits are exhausted. See the providers' current limits before increasing traffic.
 
 ## Project content
 
